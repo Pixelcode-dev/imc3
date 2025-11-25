@@ -1,0 +1,25 @@
+name: Extrair ZIPs de Animações
+
+on:
+  workflow_dispatch:
+
+jobs:
+  unzip_animations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extrair ZIPs da pasta animacoes
+        run: |
+          for f in animacoes/*.zip; do
+            unzip "$f" -d animacoes/
+          done
+
+      - name: Commit e Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add animacoes/
+          git commit -m "Extração automática de ZIPs em animações" || echo "Nada para commitar"
+          git push
