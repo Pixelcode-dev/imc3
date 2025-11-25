@@ -1,0 +1,28 @@
+name: Extrair animações.zip
+
+on:
+  push:
+    paths:
+      - "animações.zip"
+      - "animacoes.zip"   # suporte para nome sem acento
+
+jobs:
+  unzip-animacoes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extrair animações.zip
+        run: |
+          if [ -f "animações.zip" ]; then ZIP="animações.zip"; else ZIP="animacoes.zip"; fi
+          unzip -o "$ZIP" -d "animações"
+
+      - name: Commit e Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add animações
+          git commit -m "Extraído animações.zip"
+          git push || echo "Nada para enviar"
