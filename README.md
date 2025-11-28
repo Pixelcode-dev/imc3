@@ -24,3 +24,11 @@ Copie o CSS/JS da animação desejada e aplique diretamente ao seu projeto.
 
 ## 📜 Licença
 Uso livre para estudos, projetos pessoais e comerciais.
+
+###
+
+<h2>
+⚠️ OBS: BAIXE O ARQUIVO .ZIP PARA EXTRAÍ-LOS
+</h2>
+
+PASTA: animações/animações.zip
